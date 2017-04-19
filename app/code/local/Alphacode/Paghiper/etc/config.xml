@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Alphacode_Paghiper>
+      <version>1.0.0.0</version>
+    </Alphacode_Paghiper>
+  </modules>
+ 
+  <global>
+    <fieldsets>
+      <sales_convert_quote_payment>
+        <cpf_cnpj_paghiper>
+          <to_order_payment>*</to_order_payment>
+        </cpf_cnpj_paghiper>
+      </sales_convert_quote_payment>
+    </fieldsets>
+     
+    <helpers>
+      <paghiper>
+        <class>Alphacode_Paghiper_Helper</class>
+      </paghiper>
+    </helpers>
+ 
+    <blocks>
+      <paghiper>
+        <class>Alphacode_Paghiper_Block</class>
+      </paghiper>
+    </blocks>
+         
+    <models>
+      <paghiper>
+        <class>Alphacode_Paghiper_Model</class>
+      </paghiper>
+    </models>
+ 
+    <resources>
+      <paghiper_setup>
+        <setup>
+          <module>Alphacode_Paghiper</module>
+        </setup>
+      </paghiper_setup>
+    </resources>
+  </global>
+ 
+  <default>
+    <payment>
+      <paghiper>
+        <active>1</active>
+        <model>paghiper/paymentmethod</model>
+        <order_status>pending</order_status>
+        <title>PagHiper</title>
+        <allowspecific>0</allowspecific>
+        <payment_action>sale</payment_action>
+        <merchant_email>Seu email cadastrado</merchant_email>
+        <trans_key>Sua chave de API</trans_key>
+      </paghiper>
+    </payment>
+  </default>
+   
+  <frontend>
+    <routers>
+      <paghiper>
+        <use>standard</use>
+        <args>
+          <module>Alphacode_Paghiper</module>
+          <frontName>paghiper</frontName>
+        </args>
+      </paghiper>
+    </routers>
+  </frontend>
+</config>

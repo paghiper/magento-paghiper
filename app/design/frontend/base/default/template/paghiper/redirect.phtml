@@ -1,0 +1,120 @@
+<?php
+  $response = $this->getResponse();
+?>
+<div class="box-bank-slip">
+    <div class="top">
+        <div class="order">
+            <p>Número do pedido</p>
+            <div class="order-id"><img class="check" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/media/paghiper/order_check.png"><?php echo $response['bankSlipInfo']['idPlataforma']; ?></div>
+        </div>
+        <img class="logo-paghiper" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/media/paghiper/logo.gif"/>
+    </div>
+    <div class="box-info-bank-slip">
+        <div class="title">Boleto Bancário</div>
+        <div class="description">
+            <center>
+                <b>Use a linha digitável para pagar ou use o botão abaixo para imprimir ou fazer donwload</b>
+            </center>
+        </div>
+        <center>
+            <input type="text" value="<?php echo $response['bankSlipInfo']['linhaDigitavel']; ?>"/>
+            <div class="total">Valor total do boleto: <?php echo $response['bankSlipInfo']['valorTotal']; ?></div>
+            <button class="btn-print" onclick="printBankSlip()">Imprimir Boleto</button>
+        </center>
+    </div>
+    <center>
+        <iframe src="<?php echo $response['bankSlipInfo']['urlPagamento']; ?>" width="100%" height="250"></iframe>
+    </center>
+</div>
+<style type="text/css">
+.box-bank-slip {
+    margin: 0 auto;
+    position: relative;
+}
+.box-bank-slip iframe {
+    margin-top: 40px;
+}
+.box-bank-slip .logo-paghiper {
+    position: absolute;
+    left: 0;
+}
+.box-bank-slip .check {
+    position: absolute;
+    left: -40px;
+    margin-top: 11px;
+}
+
+.box-bank-slip .order {
+    position: absolute;
+    right: 0;
+    color: #6d6d6d;
+    font-family: 'Arial';
+}
+.box-bank-slip p {
+    position: absolute;
+    right: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+.box-bank-slip .order-id {
+    font-weight: 700;
+    text-align: right;
+    font-size: 40px;
+    margin-top: 10px;
+}
+.box-bank-slip .top {
+    height: 80px;
+}
+.box-info-bank-slip {
+    padding: 15px;
+    background-color: #f2f2f2;
+    border: solid;
+    border-width: 0 0 0 3px;
+    border-color: #1256a9;
+    font-family: 'Arial';
+}
+.box-bank-slip .box-info-bank-slip input {
+    margin: 10px;
+    text-align: center;
+    font-size: 14px;
+    width: 80%;
+}
+.box-bank-slip .description {
+    font-size: 14px;
+    color: #000;
+}
+.box-bank-slip .title {
+    font-size: 25px;
+    color: #1256a9;
+    border: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: #1256a9;
+    margin-bottom: 15px;
+}
+.box-info-bank-slip .total {
+    font-size: 16px;
+}
+.box-info-bank-slip button {
+    border: 0;
+    background-color: #5e5e5e;
+    color: #fff;
+    padding: 6px 15px 6px 15px;
+    font-size: 14px;
+    margin: 15px  0 0 0;
+    border-radius: 3px;
+}
+@media only screen and (max-width: 768px){
+    .box-bank-slip .order {
+        display: none;
+    }
+    .box-bank-slip iframe {
+        display: none;
+    }
+}
+</style>
+<script type="text/javascript">
+	function printBankSlip(){
+		window.open('<?php echo $response['bankSlipInfo']['urlPagamento']; ?>', '_blank');
+	}
+</script>
