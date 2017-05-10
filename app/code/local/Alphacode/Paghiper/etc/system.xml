@@ -5,10 +5,26 @@
       <groups>
         <paghiper translate="label" module="paghiper">
         <comment>
-          <![CDATA[<p>Para utilizar o Boleto PagHiper, siga os passos abaixo:</p>
-          <p>1) Acesse <a href="https://www.paghiper.com" target="_blank">paghiper.com</a> e cadastre-se.<br/>
-          2) Certifique-se que a conta esteja verificada e válida na página de  <a href="https://www.paghiper.com/painel/detalhes-da-conta/" target="_blank">Detalhes da sua conta do PagHiper</a><br/>
-          3) <a href="https://www.paghiper.com/painel/token/" target="_blank">Gere o Token</a> para receber notificações automáticas<br/></p>]]>
+          <![CDATA[
+		  <table><tbody><tr><td><img src="https://www.paghiper.com/img/modulos/magento/oficial.png" style="
+    max-width: 60%;
+  "></td></tr></tbody></table>
+		  <p>
+		  
+		  Módulo Oficial PagHiper</p>
+		   
+	      <p><h2>Para utilizar o Boleto PagHiper, siga as etapas abaixo:</h2></p>
+		  
+		  <p>1) Caso não possua uma conta PagHiper, <a href="https://www.paghiper.com/abra-sua-conta/" target="_blank"><strong> crie a sua aqui</strong></a> <br>
+          Precisa de ajuda para criar sua conta? <a href="https://www.paghiper.com/duvidas/como-se-cadastrar-no-paghiper/" target="_blank"><strong> clique aqui e veja como criar de maneira rápida e facil.</strong></a></p>
+		  
+		  <p>2) Certifique-se que a conta esteja verificada e valida na página de <a href="https://www.paghiper.com/painel/detalhes-da-conta/" target="_blank"><strong>Detalhes da sua conta</strong></a> PagHiper</p>
+		  
+		  <p>3) <a href="https://www.paghiper.com/painel/token/" target="_blank">Gere o Token</a> para receber notificações automáticas</p>
+		  
+		  <p>4) Ative a integração entre o PagHiper e o <a href="https://www.paghiper.com/painel/KAPK109D" target="_blank"><strong>Magento</strong></a>, <a href="https://www.paghiper.com/painel/KAPK109D" target="_blank"><strong>Acesse aqui</strong></a> e ative.</p>
+		  <br>
+		  ]]>
         </comment>
           <label>PagHiper</label>
           <sort_order>1000</sort_order>

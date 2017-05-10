@@ -211,6 +211,7 @@ class Alphacode_Paghiper_PaymentController extends Mage_Core_Controller_Front_Ac
           'frete' => $payment_info->shipping_amount,
           'tipo_frete' => 'Frete',
           'pagamento' => '1',
+		  'idPartners' => 'KAPK109D',
           'api' => 'json'
         );
 
