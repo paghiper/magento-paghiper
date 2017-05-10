@@ -1,5 +1,12 @@
 # magento-paghiper
 Módulo Oficial do PagHiper para Magento
+Permite a emissão de boletos e integração do gateway da Paghiper ao Magento. Este módulo implementa emissão de boletos registrados com retorno automático.
+
+* **Versão mais Recente:** 1.1
+* **Requisitos:** PHP >= 5.2.0, cURL ativado.
+* **Compatibilidade:** Qualquer versão Magento 1.9.X
+
+
 
 # Instalação
 Após download dos arquivos do Módulo, descompacte o arquivo paghiper_magento.zip e mova os arquivos para pasta app que está na raiz da sua instalação do Magento.
