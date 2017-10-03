@@ -133,14 +133,15 @@ class Alphacode_Paghiper_PaymentController extends Mage_Core_Controller_Front_Ac
                 $order->save();
               break;
 
-            case 'Completo':
-                $order = Mage::getModel('sales/order')->load($idPlataforma, 'increment_id');
-                $order->setData('state', "complete");
-                $order->setStatus("complete");       
-                $history = $order->addStatusHistoryComment('Pedido concluído através da Paghiper.', false);
-                $history->setIsCustomerNotified(false);
-                $order->save();
-              break;
+            // case 'Completo':
+			// ### Ative apenas se necessario
+            //     $order = Mage::getModel('sales/order')->load($idPlataforma, 'increment_id');
+            //     $order->setData('state', "complete");
+            //     $order->setStatus("complete");       
+            //     $history = $order->addStatusHistoryComment('Pedido concluído através da Paghiper.', false);
+            //     $history->setIsCustomerNotified(false);
+            //     $order->save();
+             //  break;
 
             case 'Cancelado':
                 $order = Mage::getModel('sales/order')->load($idPlataforma, 'increment_id');
