@@ -9,7 +9,7 @@
 		  <table><tbody><tr><td><img src="https://www.paghiper.com/img/modulos/magento/oficial.png" style="
     max-width: 60%;
   "></td></tr></tbody></table>
-		  <p>Módulo Oficial PagHiper V. 1.2</p>
+		  <p>Módulo Oficial PagHiper V. 1.3</p>
 	      <p><h2>Para utilizar o Boleto PagHiper, siga as etapas abaixo:</h2></p>
 		  <p>1) Caso não possua uma conta PagHiper, <a href="https://www.paghiper.com/abra-sua-conta/" target="_blank"><strong> crie a sua aqui</strong></a> <br>
           Precisa de ajuda para criar sua conta? <a href="https://www.paghiper.com/duvidas/como-se-cadastrar-no-paghiper/" target="_blank"><strong> clique aqui e veja como criar de maneira rápida e facil.</strong></a></p>
@@ -83,6 +83,15 @@
               <show_in_store>0</show_in_store>
               <sort_order>1</sort_order>
             </active>
+            <discount_group translate="label">
+              <label>Aplicar o desconto de cupom juntamente com o desconto do boleto</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <sort_order>3</sort_order>
+            </discount_group>
             <order_status translate="label">
               <label>Status do pedido</label>
               <frontend_type>select</frontend_type>

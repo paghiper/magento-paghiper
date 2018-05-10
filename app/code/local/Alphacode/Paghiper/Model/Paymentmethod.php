@@ -23,6 +23,7 @@ class Alphacode_Paghiper_Model_Paymentmethod extends Mage_Payment_Model_Method_A
   }
  
   public function validate(){
+    unset($_SESSION['paghiper']['data']);
     parent::validate();
     $info = $this->getInfoInstance();
 

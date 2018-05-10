@@ -1,5 +1,4 @@
 <?php 
-
 /**
 * Project: Modulo de Boleto Bancario - PagHiper 
 *
@@ -22,8 +21,16 @@ class Alphacode_Paghiper_PaymentController extends Mage_Core_Controller_Front_Ac
   }
    
   public function redirectAction() {
-    /* GERA BOLETO - CHECKOUT CHECKOUT TRANSPARENTE */
-    $response['bankSlipInfo'] = $this->generateBankSlip();
+    if (isset($_SESSION['paghiper']['data'])){    
+        $response['bankSlipInfo'] = $_SESSION['paghiper']['data'];
+    } else {
+      /* GERA BOLETO - CHECKOUT CHECKOUT TRANSPARENTE */
+      $response['bankSlipInfo'] = $this->generateBankSlip();
+
+      if (!isset($_SESSION['paghiper']['data'])){
+          $_SESSION['paghiper']['data'] = $response['bankSlipInfo']; 
+      }
+    }
 
     $this->loadLayout();
     $block = $this->getLayout()->createBlock('Mage_Core_Block_Template','paghiper',array('template' => 'paghiper/redirect.phtml', 'response' => $response));
@@ -162,17 +169,17 @@ class Alphacode_Paghiper_PaymentController extends Mage_Core_Controller_Front_Ac
   }
     /* GERA BOLETO */
     public function generateBankSlip() {
-      /******** INTERA DADOS **********/
-      $order = new Mage_Sales_Model_Order();
-      $orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
-      $order->loadByIncrementId($orderId);
+        /******** INTERA DADOS **********/
+        $order = new Mage_Sales_Model_Order();
+        $orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+        $order->loadByIncrementId($orderId);
 
-      $orderItems = $order->getItemsCollection()
-              ->addAttributeToSelect('*')
-              ->load();
+        $orderItems = $order->getItemsCollection()
+                ->addAttributeToSelect('*')
+                ->load();
 
-      $paymentId = $order->getPayment()->getId();
-      $payment_info = Mage::getModel('sales/order_payment')->load($paymentId);
+        $paymentId = $order->getPayment()->getId();
+        $payment_info = Mage::getModel('sales/order_payment')->load($paymentId);
 
         $shippingId = $order->getShippingAddress()->getId();
         $address = Mage::getModel('sales/order_address')->load($shippingId);
@@ -181,9 +188,15 @@ class Alphacode_Paghiper_PaymentController extends Mage_Core_Controller_Front_Ac
 
         $maturity_date =  Mage::getStoreConfig('payment/paghiper/maturity_date');
 
-        $discount_total = 0;
-        foreach($orderItems as $sItem){
-          $discount_total = $discount_total + ((($sItem->getPrice() * $sItem->getQty_ordered()) / 100) * $discount);
+        $subtotal = $order->base_subtotal;
+        if (Mage::getStoreConfig('payment/paghiper/discount_group') && abs($order->base_discount_amount) > 0){
+            $discount_total = (($subtotal / 100) * abs($discount)) + abs($order->base_discount_amount);
+        } elseif ((($subtotal / 100) * abs($discount)) > abs($order->base_discount_amount)){
+            $discount_total = ($subtotal / 100) * abs($discount);
+        } elseif (abs($order->base_discount_amount) > 0) {
+            $discount_total = abs($order->base_discount_amount);
+        } else {
+            $discount_total = 0;
         }
 
         $x = 1;
@@ -199,7 +212,7 @@ class Alphacode_Paghiper_PaymentController extends Mage_Core_Controller_Front_Ac
         $params = array(
           'id_plataforma' => $orderId,
           'email_loja' => Mage::getStoreConfig('payment/paghiper/merchant_email'),
-          'urlRetorno' => $_SERVER['HTTP_HOST'] . '/index.php/paghiper/payment/callback/',
+          'urlRetorno' => $this->getUrlReturn() . '/paghiper/payment/callback/',
           'vencimentoBoleto' => $maturity_date,
           'email' => $address->email,
           'nome' => $address->firstname . ' ' . $address->lastname,
@@ -233,11 +246,13 @@ class Alphacode_Paghiper_PaymentController extends Mage_Core_Controller_Front_Ac
         curl_setopt($ch, CURLOPT_POST, count($postData));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $output=curl_exec($ch);
         curl_close($ch);
 
         $data = json_decode($output);
-
+        
         $bankSlipInfo['urlPagamento']   = $data->transacao[0]->urlPagamento;
         $bankSlipInfo['linhaDigitavel'] = $data->transacao[0]->linhaDigitavel;
         $bankSlipInfo['idPlataforma']   = $data->transacao[0]->idPlataforma;
@@ -249,4 +264,42 @@ class Alphacode_Paghiper_PaymentController extends Mage_Core_Controller_Front_Ac
       return 'R$ '.number_format($value,2,',','.');
     }
 
+    public function getUrlReturn(){
+      $protocols = array(0 => 'https://www.', 1 => 'https://', 2 => 'http://www.', 3 => 'http://', 4 => 'www.', 5 => '');
+
+      $url_base = str_replace($protocols, '', Mage::getBaseUrl());
+
+      foreach ($protocols as $key => $protocol) {
+        $url = $protocol . $url_base;
+
+        if ($this->verifyURL($url)){
+          return $url;
+        } else {
+          unset($url);
+        }
+      }
+
+      return $url_base;
+    }
+
+    private function verifyURL($url){
+      $handle = curl_init($url);
+      curl_setopt($handle,  CURLOPT_RETURNTRANSFER, true);
+
+      curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
+      curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
+
+      /* Get the HTML or whatever is linked in $url. */
+      $response = curl_exec($handle);
+
+      /* Check for 404 (file not found). */
+      $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+      $output = curl_exec($handle);
+
+      if($httpCode == 200) {
+          return true;
+      } else {
+        return false;
+      }
+    }
 }
