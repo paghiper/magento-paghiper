@@ -38,16 +38,27 @@ Você Irá encontrar uma lista com algumas opções de pagamento, conforme ilust
 ![alt tag](https://atendimento.paghiper.com/hc/article_attachments/360004430513/configmodulo.jpg)
 
 a) Seu e-mail de cadastro na PagHiper.
+
 b) Token gerado pela PagHiper.Pode ser obtido em https://www.paghiper.com/painel/credenciais/
+
 c) Título do módulo (será apresentado no checkout).
+
 d) Status do módulo (Para ativar deixe como ativo).
+
 e) Valor mínimo para pagamento utilizando o módulo PagHiper (Ex. 10.5)
+
 f) Número de dias para o vencimento do boleto
+
 g) Status inicial de pedidos finalizados com a PagHiper como forma de pagamento.
+
 h) Aplicar o desconto de cupom junto com o desconto de boleto (ativando essa opção ele irá somar o desconto aplicado no boleto, juntamente com descontos de cupom disponibilizado na loja, deixando ela desativada, o desconto considerado será o de maior valor, exemplo o cliente utilize um cupom de 15% e no modulo esteja 10%, o desconto considerado sera apenas o do cupom 15%)
+
 i) Desconto aplicado no boleto em porcentagem (%)
+
 j) Para quais países a forma de pagamento aparecerá como opção, todos ou apenas para um país específico.
+
 k) Caso o módulo PagHiper seja selecionado para algum país específico, selecione-o nesta opção.
+
 
 Por Fim Clique em "Salvar"
 
