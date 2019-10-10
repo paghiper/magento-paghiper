@@ -1,10 +1,10 @@
-# Módulo Magento 1.9 - PAGHIPER
+# Módulo Magento 1.9.X - PAGHIPER
 
 Módulo Oficial do PagHiper para Magento Permite a emissão de boletos e integração do gateway da Paghiper ao Magento. Este módulo implementa emissão de boletos registrados com retorno automático.
 
-Versão mais Recente: 1.4
-Requisitos: PHP >= 5.2.0, cURL ativado.
-Compatibilidade: Qualquer versão Magento 1.9.X
+* ** Versão mais Recente:** 1.4
+* ** Requisitos:** PHP >= 5.2.0, cURL ativado.
+* ** Compatibilidade:** Qualquer versão Magento 1.9.X
  
 
 Download do Módulo
