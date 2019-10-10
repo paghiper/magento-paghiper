@@ -42,7 +42,7 @@ clique no Menu Sistema, e vá até o Configuração.
 ![alt tag](https://atendimento.paghiper.com/hc/article_attachments/360002029053/magento8.jpg)
 Figura 4
 
-Na pagina que irá carregar, vá até o menu lateral "Vendas" e clique Em “formas de pagamento” .
+Na pagina que irá carregar, vá até o menu lateral "Vendas" e clique Em “formas de pagamento”.
 
 ![alt tag](https://atendimento.paghiper.com/hc/article_attachments/360002028653/magento9.jpg)
 Figura 5
@@ -51,6 +51,7 @@ Você Irá encontrar uma lista com algumas opções de pagamento, conforme ilust
 
 ![alt tag](https://atendimento.paghiper.com/hc/article_attachments/360004430513/configmodulo.jpg)
 Figura 6
+
 
  
 * a) Status do módulo (Para ativar deixe como ativo).
@@ -67,6 +68,7 @@ Se não deseja que seu cliente pague após o vencimento, deixe o campo em branco
 * k) Porcentagem de desconto de antecipação.
 * l) dias que o pagamento pode ser antecipado, deve ser menor que o vencimento
 Por exemplo. se você colocar 5 dias para vencimento, se inserir 3 neste campo, significa, que até 3 dias antes do vencimento o cliente tem desconto por pagar antecipado.
+
 
 
 Por Fim Clique em "Salvar"
