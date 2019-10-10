@@ -53,19 +53,19 @@ Você Irá encontrar uma lista com algumas opções de pagamento, conforme ilust
 Figura 6
 
  
-a) Status do módulo (Para ativar deixe como ativo).
-b) Descrição, que irá aparecer na hora do pagamento, aqui você pode inserir instruções para seu cliente.
-c) Título do módulo (será apresentado no checkout).
-d) ApiKey gerado pela PagHiper. Pode ser obtido em https://www.paghiper.com/painel/credenciais/
-e) Token gerado pela PagHiper.Pode ser obtido em https://www.paghiper.com/painel/credenciais/
-f) Número de dias para o vencimento do boleto
-g) Numero máximo de dias que o boleto fica em aberto após o vencimento.
+* a) Status do módulo (Para ativar deixe como ativo).
+* b) Descrição, que irá aparecer na hora do pagamento, aqui você pode inserir instruções para seu cliente.
+* c) Título do módulo (será apresentado no checkout).
+* d) ApiKey gerado pela PagHiper. Pode ser obtido em https://www.paghiper.com/painel/credenciais/
+* e) Token gerado pela PagHiper.Pode ser obtido em https://www.paghiper.com/painel/credenciais/
+* f) Número de dias para o vencimento do boleto
+* g) Numero máximo de dias que o boleto fica em aberto após o vencimento.
 Se não deseja que seu cliente pague após o vencimento, deixe o campo em branco.
-h) Percentual de multa, para boleto vencido. 0 á 2 %
-i) Juros para boleto vencido, se ativado, será cobrado uma taxa de 1% ao mês de atraso.
-j) Ativar desconto de antecipação.
-k) Porcentagem de desconto de antecipação.
-l) dias que o pagamento pode ser antecipado, deve ser menor que o vencimento
+* h) Percentual de multa, para boleto vencido. 0 á 2 %
+* i) Juros para boleto vencido, se ativado, será cobrado uma taxa de 1% ao mês de atraso.
+* j) Ativar desconto de antecipação.
+* k) Porcentagem de desconto de antecipação.
+* l) dias que o pagamento pode ser antecipado, deve ser menor que o vencimento
 Por exemplo. se você colocar 5 dias para vencimento, se inserir 3 neste campo, significa, que até 3 dias antes do vencimento o cliente tem desconto por pagar antecipado.
 
 
