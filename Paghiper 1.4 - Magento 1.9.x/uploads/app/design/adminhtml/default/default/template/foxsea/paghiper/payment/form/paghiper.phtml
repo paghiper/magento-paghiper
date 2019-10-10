@@ -1,0 +1,24 @@
+<?php if ($this->getMethod()->getInformation()): ?>
+    <ul class="form-list" id="payment_form_<?php echo $this->getMethodCode() ?>" style="display:none;">
+        <li>
+            <div class="input-box">
+                <?php if ($this->getMethod()->getInformation()): ?>
+                    <label style="color:#c00"><?php echo $this->getMethod()->getInformation(); ?></label>
+                <?php endif; ?>
+            </div>
+        </li>
+
+        <?php
+
+        $taxvat = (Mage::getSingleton('customer/session')->isLoggedIn()) ? Mage::getSingleton('customer/session')->getCustomer()->getTaxvat() : '';
+        ?>
+        <li class="fields">
+            <div class="field">
+                <div class="input-box">
+                    <label>CPF/CNPJ:</label>
+                    <input type="text" name="paghiper_taxvat" value="<?php echo $taxvat;?>" class="required-entry" />
+                </div>
+            </div>
+        </li>
+    </ul>
+<?php endif; ?>

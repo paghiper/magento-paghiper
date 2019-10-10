@@ -1,0 +1,35 @@
+<?php
+$orderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+if($orderId){
+?>
+    <div class="buttons-set">
+        <?php
+        $order = Mage::getModel('sales/order')->load($orderId);
+        $payment = $order->getPayment();
+        echo '<p>'. $payment->getMethodInstance()->getTitle() .'</p>';
+        if($payment->hasAdditionalInformation('vencimento')){
+            echo '<p class="vencimento">Vencimento: '. date('d/m/Y', strtotime($payment->getAdditionalInformation('vencimento'))) .'</p>';
+        }
+        if($payment->hasAdditionalInformation('linha_digitavel')){
+        ?>
+            <p>
+                <p>Linha digitável:</p>
+                <input type="text" value="<?php echo $payment->getAdditionalInformation('linha_digitavel');?>" id="linha_digitavel" style="padding: 10px; box-sizing: border-box;" readonly /> <button type="button" style="padding: 3px; box-sizing: border-box;" onclick="copyLinha();">Copiar</button>
+                <script>
+                function copyLinha() {
+                var copyText = document.getElementById("linha_digitavel");
+                copyText.select();
+                document.execCommand("copy");
+                }
+                </script>
+            </p><br><br><br>
+        <?php
+        }
+        if($payment->hasAdditionalInformation('boleto_url')){
+            echo '<a class="button" href="'. $payment->getAdditionalInformation('boleto_url') .'" target="_blank">Imprimir boleto</a>';
+        }
+        ?>
+    </div>
+<?php
+}
+?>

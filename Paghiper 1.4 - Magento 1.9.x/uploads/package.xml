@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>paghiper</name>
+    <version>1.0.0</version>
+    <stability>beta</stability>
+    <license>GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Integra&#xE7;&#xE3;o com boleto PagHiper.</summary>
+    <description>Integra&#xE7;&#xE3;o com boleto PagHiper.</description>
+    <notes>1.0.0</notes>
+    <authors><author><name>Foxsea</name><user>foxsea</user><email>contato@foxsea.com.br</email></author></authors>
+    <date>2019-01-24</date>
+    <time>13:42:01</time>
+    <contents><target name="magecommunity"><dir name="Foxsea"><dir name="Paghiper"><dir name="Block"><file name="Form.php" hash="0b64cbe45a5673f3fa663111d19357d8"/><file name="Info.php" hash="b56f32ae9112ff2d3bdf24b1ee8c913a"/></dir><dir name="Helper"><file name="Data.php" hash="bb486e8d0b48d29fb4b28ea3f96d2f67"/><file name="Order.php" hash="ade3ec47440a6d7b7cc966ba36d0352c"/></dir><dir name="Model"><file name="PaymentMethod.php" hash="2ff03dfc367cac2d07777782d8672205"/></dir><dir name="controllers"><file name="BoletoController.php" hash="3e11497884d64330c0e2fd6ffce47fc6"/><file name="OrderController.php" hash="59b9abe8c07ea88098c474249fdb2118"/></dir><dir name="etc"><file name="adminhtml.xml" hash="d2b8c64ff04f9138e1424e53fca10ca5"/><file name="config.xml" hash="a9186817cc25ecbab4888ad8408a328c"/><file name="system.xml" hash="49093534321aa0874bc9ab95baa2c754"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Foxsea_Paghiper.xml" hash="73bfa7929823d7a31bb7ba3f735185c6"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="foxsea"><dir name="paghiper"><dir name="checkout"><file name="success.phtml" hash="fd49ac5ad28698374b3418598c9b9f9c"/></dir><dir name="payment"><dir name="form"><file name="paghiper.phtml" hash="8f552a7fb3db993664ac51c930172410"/></dir><dir name="info"><file name="paghiper.phtml" hash="5e001901446087c2a576c37a7f8d3d6c"/></dir></dir></dir></dir></dir><dir name="layout"><dir name="foxsea"><dir name="paghiper"><file name="paghiper.xml" hash="2fdcd8192fdc7df1b7ef468e9d88107a"/></dir></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="foxsea"><dir name="paghiper"><dir name="payment"><dir name="form"><file name="paghiper.phtml" hash="22dbd4745e69e73fa6f0e0aeb56aabc9"/></dir><dir name="info"><file name="paghiper.phtml" hash="c14adb8e3229b0171652c50535f4d429"/></dir></dir></dir></dir></dir></dir></dir></dir></target><target name="mage"><dir name="js"><dir name="paghiper"><file name="main.js" hash="318703de81d09e00d44f102b77fdb16a"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

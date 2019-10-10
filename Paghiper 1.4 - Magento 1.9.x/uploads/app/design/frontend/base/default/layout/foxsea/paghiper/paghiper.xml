@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_index translate="label">
+        <reference name="head">
+            <action method="addJs">
+                <script>paghiper/main.js</script>
+            </action>
+        </reference>
+    </checkout_onepage_index>
+    <checkout_onepage_success translate="label">
+        <reference name="content">
+            <reference name="checkout.success">
+                <block type="core/template" name="paghiper.info" template="foxsea/paghiper/checkout/success.phtml" />
+            </reference>
+        </reference>
+    </checkout_onepage_success>
+</layout>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foxsea_Paghiper>
+            <version>1.0.0</version>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Payment/>
+            </depends>
+        </Foxsea_Paghiper>
+    </modules>
+</config>

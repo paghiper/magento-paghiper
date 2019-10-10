@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <foxsea_paghiper translate="label" module="foxsea_paghiper">
+                    <comment>
+                    <![CDATA[
+                    <table><tbody><tr><td><img src="https://www.paghiper.com/img/modulos/magento/oficial.png" style="
+                    max-width: 50%;
+                    "></td></tr></tbody></table>
+                    <p>Módulo Oficial PagHiper v1.4</p>
+                    <h3>Para utilizar o Boleto PagHiper, siga as etapas abaixo:</h3>
+                    <p>1) Caso não possua uma conta PagHiper, <a href="https://www.paghiper.com/abra-sua-conta/" target="_blank">crie a sua aqui</a>.</p>
+                    <p>2) Certifique-se que a conta esteja verificada e valida na página de <a href="https://www.paghiper.com/painel/detalhes-da-conta/" target="_blank">detalhes da sua conta</a>.</p>
+                    <p>3) <a href="https://www.paghiper.com/painel/token/" target="_blank">Gere o token</a> para receber notificações automáticas.</p>
+                    <p>4) Ative a integração entre o PagHiper e o <a href="https://www.paghiper.com/painel/KAPK109D" target="_blank">Magento</a>, <a href="https://www.paghiper.com/painel/KAPK109D" target="_blank">Acesse aqui</a> e ative.</p>
+                    <p>5) Em caso de duvida, <a href="https://atendimento.paghiper.com/hc/pt-br/articles/360001300414" target="_blank">acesse aqui</a> nosso tutorial de como configurar o módulo.</p>
+                    <br>
+                    ]]>
+                    </comment>
+                    <label>PagHiper</label>
+                    <sort_order>1001</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <information translate="label">
+                            <label>Descrição</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </information>
+                        <apikey translate="label">
+                            <label>ApiKey</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<a href="https://www.paghiper.com/painel/credenciais/" target="_blank">Gerar aqui</a>]]></comment>
+                        </apikey>
+                        <token translate="label">
+                            <label>Token</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<a href="https://www.paghiper.com/painel/credenciais/" target="_blank">Gerar aqui</a>]]></comment>
+                        </token>
+                        <days_due_date translate="label">
+                            <label>Dias para vencimento</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </days_due_date>
+                        <open_after_day_due translate="label">
+                            <label>Máximo de dias que poderá ser pago após o vencimento</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>De 5 à 30</comment>
+                            <validate>validate-digits-range digits-range-5-30</validate>
+                        </open_after_day_due>
+                        <late_payment_fine translate="label">
+                            <label>Percentual de multa</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>De 0 à 2</comment>
+                            <validate>validate-digits-range digits-range-0-2</validate>
+                        </late_payment_fine>
+                        <per_day_interest translate="label">
+                            <label>Aplicar juros por atraso?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </per_day_interest>
+                        <early_payment_discount translate="label">
+                            <label>Aplicar desconto para pagamento antecipado?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Quer saber como funciona? <a href="https://atendimento.paghiper.com/hc/pt-br/articles/360015940353" target="_blank">Clique aqui</a>]]></comment>
+                        </early_payment_discount>
+                        <early_payment_discounts_cents translate="label">
+                            <label>Desconto pagamento antecipado (%)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <early_payment_discount>1</early_payment_discount>
+                            </depends>
+                        </early_payment_discounts_cents>
+                        <early_payment_discounts_days translate="label">
+                            <label>Dias que o pagamento pode ser antecipado</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<font style="color: #FA4545;">Deve ser menor que o "Dias para vencimento".</font>]]></comment>
+                            <depends>
+                                <early_payment_discount>1</early_payment_discount>
+                            </depends>
+                        </early_payment_discounts_days>
+                    </fields>
+                </foxsea_paghiper>
+            </groups>
+        </payment>
+    </sections>
+</config>

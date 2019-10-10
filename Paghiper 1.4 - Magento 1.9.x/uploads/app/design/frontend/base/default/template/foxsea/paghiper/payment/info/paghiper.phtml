@@ -1,0 +1,27 @@
+<p><?php echo $this->getMethod()->getTitle(); ?></p><br>
+
+<?php
+if($this->getInfo()->getOrder() && $this->getInfo()->getOrder()->getState() != 'canceled'){
+    if($this->getInfo()->hasAdditionalInformation('vencimento')){
+        echo '<p class="vencimento">Vencimento: '. date('d/m/Y', strtotime($this->getInfo()->getAdditionalInformation('vencimento'))) .'</p>';
+    }
+    if($this->getInfo()->hasAdditionalInformation('linha_digitavel')){
+    ?>
+        <p>
+            <p>Linha digitável:</p>
+            <input type="text" value="<?php echo $this->getInfo()->getAdditionalInformation('linha_digitavel');?>" id="linha_digitavel" style="float: left; width: 75%; padding: 10px; box-sizing: border-box;" readonly /> <button type="button" style="float: left; width: 25%; padding: 3px; box-sizing: border-box;" onclick="copyLinha();">Copiar</button>
+            <script>
+            function copyLinha() {
+            var copyText = document.getElementById("linha_digitavel");
+            copyText.select();
+            document.execCommand("copy");
+            }
+            </script>
+        </p><br><br><br>
+    <?php
+    }
+    if($this->getInfo()->hasAdditionalInformation('boleto_url')){
+        echo '<a class="button" href="'. $this->getInfo()->getAdditionalInformation('boleto_url') .'" target="_blank">Imprimir boleto</a>';
+    }
+}
+?>
