@@ -94,9 +94,6 @@ Cancelado - Código: canceled
 Disputa - Código: payment_review
 
 
-# Video Tutorial
-
-[![Video tutorial no Youtube](http://img.youtube.com/vi/HG9PNwIxoVo/0.jpg)](http://www.youtube.com/watch?v=HG9PNwIxoVo)
 
 # Dúvidas sobre sua conta PagHiper?
 
