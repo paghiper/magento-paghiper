@@ -95,7 +95,8 @@ Disputa - Código: payment_review
 
 
 # Video Tutorial
-[Video no Youtube](https://www.youtube.com/watch?v=HG9PNwIxoVo)
+
+[![Video tutorial no Youtube](http://img.youtube.com/vi/HG9PNwIxoVo/0.jpg)](http://www.youtube.com/watch?v=HG9PNwIxoVo)
 
 # Dúvidas sobre sua conta PagHiper?
 
